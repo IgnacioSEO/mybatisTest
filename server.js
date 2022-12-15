@@ -1,11 +1,11 @@
 const { createApp } = require("./app");
 // const { appDataSource } = require("./src/models/dataSource");
-const { connection } = require("./src/models/db");
+const { appDataSource } = require("./src/models/dataSource");
 const startServer = async () => {
   const app = createApp();
   const PORT = process.env.PORT;
 
-  await connection
+  await appDataSource
     .initialize()
     .then(() => {
       console.log("Data Source has been initialized!");
